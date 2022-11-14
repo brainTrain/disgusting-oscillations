@@ -1,19 +1,26 @@
 /* eslint-disable no-undef*/
 
 import { useEffect, useRef, useState } from 'react';
+import io from 'socket.io-client';
 import './App.css';
 import HydraSynth from 'hydra-synth';
 
+// needed for hydra, not sure why or if there's a better solution
 window.global = window;
+
+const socket = io();
 
 function App() {
   const canvasEl = useRef(null);
   const [hydra, setHydra] = useState(null);
+  console.log('hydra', hydra);
 
   useEffect(() => {
+    console.log('uhhhh');
     setHydra(() => {
       return new HydraSynth({
-        detectAudio: true,
+        // detectAudio: true,
+        detectAudio: false,
         canvas: canvasEl.current,
         precision: 'mediump',
         makeGlobal: true,
@@ -21,13 +28,11 @@ function App() {
     });
   }, []);
 
+  /*
   useEffect(() => {
-    console.log('uhhhhhh');
-    console.log(hydra);
     if (hydra) {
       s0.initCam(0);
 
-      /*
       src(s0)
         .scrollX(0, () => Math.sin(time * 0.05) * 0.00005)
         .scrollY([-0.2, 0, -2, 0.2, -0.2, 0, 0.2].ease('easeInOutCubic'))
@@ -38,7 +43,6 @@ function App() {
         .saturate(({ time }) => Math.sin(time) * 10)
         .modulate(o0, () => mouse.x * 0.0003)
         .out();
-        */
       src(s0)
         .scrollY(() => time * mouse.y * 0.000003)
         .scrollX(() => time * mouse.x * 0.000003)
@@ -51,6 +55,7 @@ function App() {
         .out();
     }
   }, [hydra]);
+  */
 
   return (
     <div className="App">
