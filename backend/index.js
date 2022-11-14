@@ -12,6 +12,10 @@ app.use(cors());
 io.on('connection', (socket) => {
   console.log('a user connected');
 
+  socket.on('bro', () => {
+    console.log('bro?');
+  });
+
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });

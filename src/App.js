@@ -13,10 +13,8 @@ const socket = io();
 function App() {
   const canvasEl = useRef(null);
   const [hydra, setHydra] = useState(null);
-  console.log('hydra', hydra);
 
   useEffect(() => {
-    console.log('uhhhh');
     setHydra(() => {
       return new HydraSynth({
         // detectAudio: true,
@@ -25,6 +23,14 @@ function App() {
         precision: 'mediump',
         makeGlobal: true,
       });
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(socket);
+    socket.emit('bro');
+    socket.on('connect', () => {
+      console.log('socket connected');
     });
   }, []);
 
