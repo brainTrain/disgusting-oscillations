@@ -50,6 +50,8 @@ function App() {
   useEffect(() => {
     if (hydra) {
       /*
+      const commandFn = Function(stringCommand);
+      commandFn();
       setTimeout(stringCommand, 0);
       s0.initCam(0);
       src(s0)
