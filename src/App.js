@@ -5,10 +5,12 @@ import io from 'socket.io-client';
 import './App.css';
 import HydraSynth from 'hydra-synth';
 
+const SERVER_PORT = 3000;
+
 // needed for hydra, not sure why or if there's a better solution
 window.global = window;
 
-const socket = io();
+const socket = io(`http://localhost:${SERVER_PORT}`);
 
 function App() {
   const canvasEl = useRef(null);
@@ -27,8 +29,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(socket);
-    socket.emit('bro');
     socket.on('connect', () => {
       console.log('socket connected');
     });
