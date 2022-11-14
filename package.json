@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "concurrently": "^7.5.0",
     "express": "^4.18.2",
     "hydra-synth": "^1.3.24",
     "nodemon": "^2.0.20",
@@ -18,24 +19,17 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:all": "concurrently \"yarn start\" \"yarn server:start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server:start": "NODE_ENV=development nodemon ./backend/index.js --environment=development"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "prettier"
-    ]
+    "extends": ["react-app", "react-app/jest", "prettier"]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
