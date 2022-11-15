@@ -1,16 +1,14 @@
 /* eslint-disable no-undef*/
-
 import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
+import { SERVER_PORT, SERVER_BASE_URL, HYDRA_COMMAND } from './constants';
 import './App.css';
 import HydraSynth from 'hydra-synth';
-// TODO: take magic strings and make them shared consts
-const SERVER_PORT = 3000;
 
 // needed for hydra, not sure why or if there's a better solution
 window.global = window;
 
-const socket = io(`http://localhost:${SERVER_PORT}`);
+const socket = io(`${SERVER_BASE_URL}:${SERVER_PORT}`);
 
 function App() {
   const canvasEl = useRef(null);
@@ -30,7 +28,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    socket.on('hydra-command', (newHydraJSString) => {
+    socket.on(HYDRA_COMMAND, (newHydraJSString) => {
       // use function as setting to handle the case of many events coming in quickly
       // so we can ensure we're always setting a string for the latest value
       setHydraJSString(() => {
