@@ -19,8 +19,8 @@ Currently the config vars are in `src/constants.js`. Ideally they would be in `.
 * If you want to change the `HYDRA_WATCH_FILE` variable you will also have to change the `nodemonConfig`'s `ignore` setting in the `package.json` to match the file you want to watch
 
 ## Uses:
-[create-react-app](https://create-react-app.dev/) for the UI
+[create-react-app](https://create-react-app.dev/) -- for the UI
 
 [Hydra-Synth](https://github.com/hydra-synth/hydra-synth) 
 
-[socket.io](https://socket.io/)
+[socket.io](https://socket.io/) -- for sending local file changes to the UI for performances
