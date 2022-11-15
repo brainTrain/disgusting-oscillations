@@ -20,6 +20,7 @@ Currently the config vars are in `src/constants.js`. Ideally they would be in `.
 
 ## Uses:
 [create-react-app](https://create-react-app.dev/) for the UI
+
 _if any folks who work on this come accross this project, I'd love to be able to use .env as it was designed and would love to be able to set my constants.js file in the root of the project and import into the src and backend dirs from there._
 
 [Hydra-Synth](https://github.com/hydra-synth/hydra-synth) 
