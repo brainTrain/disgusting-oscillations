@@ -9,6 +9,7 @@ module.exports = {
   // server vars
   SERVER_PORT: 4000,
   SERVER_BASE_URL: 'http://localhost',
+  // NOTE: if you change this file you will also have to change the `nodemonConfig`'s `ignore` setting in the `package.json`
   HYDRA_WATCH_FILE: 'hydra-performance.js',
   HYDRA_WATCH_FILE_INTERVAL: 500,
   // socket.io event strings
