@@ -12,8 +12,9 @@ const {
   CLIENT_BASE_URL,
   HYDRA_WATCH_FILE,
   HYDRA_COMMAND,
-  CONNECTION
-} = require('../src/constants');
+  CONNECTION,
+  HYDRA_WATCH_FILE_INTERVAL,
+} = require('./src/constants');
 
 const io = new Server(server, {
   cors: {
@@ -22,10 +23,11 @@ const io = new Server(server, {
 });
 
 app.use(cors());
+app.use('/static', express.static(path.join(__dirname, '/build/static')));
+app.use('/', express.static(path.join(__dirname, '/build')));
 
 const WATCH_FILE_OPTS = {
-  // half a second interval for percieved instant changes
-  interval: 500,
+  interval: HYDRA_WATCH_FILE_INTERVAL,
 };
 
 io.on(CONNECTION, (socket) => {
@@ -39,6 +41,10 @@ io.on(CONNECTION, (socket) => {
       }
     });
   });
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, './build/index.html'));
 });
 
 server.listen(SERVER_PORT, () => {

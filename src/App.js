@@ -1,6 +1,7 @@
 /* eslint-disable no-undef*/
 import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
+
 import { SERVER_PORT, SERVER_BASE_URL, HYDRA_COMMAND } from './constants';
 import './App.css';
 import HydraSynth from 'hydra-synth';

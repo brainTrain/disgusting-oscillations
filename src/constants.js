@@ -1,10 +1,10 @@
 module.exports = {
   // client vars
   // NOTE: if you change the CLIENT_PORT var, you will have to create a local .env file at the root
-  // of the project and set it there as well using PORT (ex: if the new port is 42069 you can set it 
+  // of the project and set it there as well using PORT (ex: if the new port is 42069 you can set it
   // using PORT=42069 otherwise the create-react-app kiddy bumpers won't work (the way they make .env
   // difficult to use is super frustrating. I just want a dang mono repo for this thing without needing to eject!)
-  CLIENT_PORT: 3000,
+  CLIENT_PORT: process.env.NODE_ENV === 'production' ? 4000 : 3000,
   CLIENT_BASE_URL: 'http://localhost',
   // server vars
   SERVER_PORT: 4000,

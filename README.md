@@ -8,10 +8,13 @@ Super simple react UI for [Hydra](https://hydra.ojack.xyz/)
   * starts both backend and frontend and watches for file changes
 * `yarn start`
   * starts frontend in dev mode and watches for file changes
-* `server:start`
+* `yarn start:dev`
   * starts backend in dev mode and watches for file changes
 ### Prod:
-* still need to figure out
+* `yarn build`
+  * builds the prod bundle of the frontend (only need to do this once, unless you make changes to the frontend)
+* `yarn start:prod`
+  * runs node server (defaults to `http://localhost:4000`)
 
 ### Config:
 Currently the config vars are in `src/constants.js`. Ideally they would be in `.env` but certain guard rails imposed by `create-react-app` make that difficult. Everything should be easily changed there with a couple of exceptions.
