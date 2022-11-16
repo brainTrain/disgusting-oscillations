@@ -16,10 +16,14 @@ function App() {
   const [hydra, setHydra] = useState(null);
   const [hydraJSString, setHydraJSString] = useState('');
 
+  // TODO: for some reason turning on the mic
+  // makes the OBS audio output super quiet
+  // investigate this so we can have fun with
+  // the microphone
   useEffect(() => {
     setHydra(() => {
       return new HydraSynth({
-        detectAudio: true,
+        detectAudio: false,
         canvas: canvasEl.current,
         precision: 'mediump',
         // TODO: maybe make these local so we can potentially combine multiple cameras
