@@ -20,10 +20,11 @@ function App() {
   // makes the OBS audio output super quiet
   // investigate this so we can have fun with
   // the microphone
+  // NOTE: this seems to be an open bug with webkit, firefox handles this stuff way better
   useEffect(() => {
     setHydra(() => {
       return new HydraSynth({
-        detectAudio: false,
+        detectAudio: true,
         canvas: canvasEl.current,
         precision: 'mediump',
         // TODO: maybe make these local so we can potentially combine multiple cameras
