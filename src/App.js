@@ -26,7 +26,6 @@ function App() {
       return new HydraSynth({
         detectAudio: true,
         canvas: canvasEl.current,
-        precision: 'mediump',
         // TODO: maybe make these local so we can potentially combine multiple cameras
         makeGlobal: true,
       });
@@ -56,11 +55,8 @@ function App() {
     <div className="App">
       {/* TODO: figure out how responsive we wanna make this */}
       <canvas
+        className="hydra-canvas"
         ref={canvasEl}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
         height="892"
         width="946"></canvas>
     </div>
