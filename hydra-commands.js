@@ -133,5 +133,29 @@ src(s0)
   )
   .out();
 
+// draws four squares and has them change based on different fft values
+s0.initCam(2);
+src(s0)
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[0])
+      .scrollX(0),
+  )
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[1])
+      .scrollX(0.05),
+  )
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[2])
+      .scrollX(0.1),
+  )
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[3])
+      .scrollX(0.15),
+  );
+
 // a.fft -- list of fft values
 // a.setBins() -- sets list size for fft (moar granular)

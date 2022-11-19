@@ -1,19 +1,40 @@
 // ┬─┬ノ( º _ ºノ)
 // a.setBins(12);
+/*
+.saturate(() => {
+  return a.fft[0] * 10;
+})
+*/
 s0.initCam(2);
-
 src(s0)
   // .scrollY([-0.2, 0, -2, 0.2, -0.2, 0, 0.2].ease('easeInOutCubic'))
   // .saturate(() => a.fft[0] * 1000)
   // .saturate(() => Math.sin(time) * 10)
-  // .saturate(() => a.fft[0] * 10)
-  /*
-  .saturate(() => {
-    return a.fft[0] * 10;
-  })
-  */
+  // .blend(kaleid(5))
+  .saturate(() => a.fft[0] * 10)
   // .saturate(() => mouse.x * 0.009)
   // .saturate(({ time }) => Math.sin(time) * 10)
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[0])
+      .scrollX(0),
+  )
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[1])
+      .scrollX(0.05),
+  )
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[2])
+      .scrollX(0.1),
+  )
+  .diff(
+    shape(4)
+      .scale(0.1, 1, () => a.fft[3])
+      .scrollX(0.15),
+  )
+  // .blend(osc(60, 0.3, 3).rotate(2))
   // .modulate(noise(1, () => a.fft[0] * 0.01))
   // .modulate(o0, () => mouse.x * 0.003)
   .out();

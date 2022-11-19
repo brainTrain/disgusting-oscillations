@@ -47,7 +47,11 @@ function App() {
     if (hydra && hydraJSString) {
       // using Function here because it's faster and safer than eval (still not totally save tho)
       const commandFn = Function(hydraJSString);
-      commandFn();
+      try {
+        commandFn();
+      } catch (e) {
+        console.error(e);
+      }
     }
   }, [hydra, hydraJSString]);
 
